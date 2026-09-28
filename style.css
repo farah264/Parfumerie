@@ -1,0 +1,535 @@
+
+/* ============================= */
+/*          STYLE GENERAL        */
+/* ============================= */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    background-image: url("../images/parfum.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #333;
+}
+body.accueil {
+    background-image: url("../images/acceuil.png");
+}
+
+/* ============================= */
+/*             HEADER             */
+/* ============================= */
+
+header {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    color: #c83f78;
+    font-family: Georgia, serif;
+    margin: 0 0 15px 0;
+}
+
+/* ============================= */
+/*              NAV               */
+/* ============================= */
+
+nav {
+    text-align: center;
+    margin-top: 15px;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: #c83f78;
+    font-weight: bold;
+    margin: 5px 12px;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+nav a:hover {
+    background: #c83f78;
+    color: white;
+}
+
+/* ============================= */
+/*              MAIN              */
+/* ============================= */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+main h2 {
+    color: #c83f78;
+    font-family: Georgia, serif;
+}
+
+/* ============================= */
+/*            PRODUITS            */
+/* ============================= */
+
+.produits {
+    width: 90%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.produit {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.produit:hover {
+    transform: translateY(-5px);
+}
+
+.produit img {
+    width: 100%;
+    max-width: 220px;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+.produit h3 {
+    color: #c83f78;
+    font-family: Georgia, serif;
+}
+
+.produit p {
+    color: #555;
+}
+
+/* ============================= */
+/*        BOUTON PANIER           */
+/* ============================= */
+
+.btn-panier {
+    display: inline-block;
+    background: #c83f78;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-panier:hover {
+    background: #a82d61;
+}
+
+/* ============================= */
+/*            FORMULAIRES         */
+/* ============================= */
+
+.formulaire {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.formulaire form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formulaire label {
+    text-align: left;
+    font-weight: bold;
+    color: #c83f78;
+}
+
+.formulaire input,
+.formulaire textarea,
+.formulaire select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.formulaire textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.formulaire button {
+    background: #c83f78;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.formulaire button:hover {
+    background: #a82d61;
+}
+
+/* ============================= */
+/*       MESSAGES SUCCÈS         */
+/* ============================= */
+
+.message-succes {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.texte-succes {
+    color: #155724;
+    font-weight: bold;
+}
+
+/* ============================= */
+/*        MESSAGE ERREUR          */
+/* ============================= */
+
+.message-erreur {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* ============================= */
+/*             PANIER             */
+/* ============================= */
+
+.panier {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.article-panier {
+    background: rgba(255,255,255,0.95);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+.actions-panier {
+    margin-top: 20px;
+}
+
+.btn-supprimer {
+    display: inline-block;
+    background: #dc3545;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.btn-supprimer:hover {
+    background: #b52a37;
+}
+
+/* ============================= */
+/*       COMMANDE VALIDEE        */
+/* ============================= */
+
+.commande-validee {
+    width: 90%;
+    max-width: 700px;
+    margin: 50px auto;
+    background: rgba(255,255,255,0.95);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.icone-validation {
+    font-size: 60px;
+}
+
+.merci {
+    color: #c83f78;
+    font-family: Georgia, serif;
+}
+
+.details-commande {
+    background: #fff0f5;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.message-final {
+    font-weight: bold;
+    color: #555;
+}
+
+.retour-accueil {
+    display: inline-block;
+    background: #c83f78;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    margin-top: 20px;
+}
+
+.retour-accueil:hover {
+    background: #a82d61;
+}
+
+/* ============================= */
+/*          COMPTE CREE          */
+/* ============================= */
+
+body.compte-cree {
+    background-image: url("../images/inscription.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* ============================= */
+/*          PAGE À PROPOS        */
+/* ============================= */
+
+.page-apropos {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.apropos {
+    background: rgba(255,255,255,0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.section-apropos {
+    margin-bottom: 30px;
+}
+
+.section-apropos h2 {
+    color: #c83f78;
+    font-family: Georgia, serif;
+}
+
+.valeurs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.valeur {
+    background: #fff0f5;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* ============================= */
+/*     COMMANDES ADMIN           */
+/* ============================= */
+
+.commandes-admin {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.commande-box {
+    background: rgba(255,255,255,0.95);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-left: 6px solid #c83f78;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.commande-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.20);
+}
+
+.commande-box h3 {
+    color: #c83f78;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.commande-info p {
+    color: #555;
+    font-size: 16px;
+    margin: 12px 0;
+}
+
+.commande-info strong {
+    color: #c83f78;
+}
+
+/* ============================= */
+/*       STATUT EN ATTENTE       */
+/* ============================= */
+
+.statut {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* En attente */
+.statut.en-attente {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffe69c;
+}
+
+/* Préparée */
+.statut.préparée {
+    background-color: #cfe2ff;
+    color: #084298;
+    border: 1px solid #9ec5fe;
+}
+
+/* Livrée */
+.statut.livrée {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #a3cfbb;
+}
+
+/* ============================= */
+/*       FORMULAIRE STATUT       */
+/* ============================= */
+
+.form-statut {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.form-statut label {
+    display: block;
+    color: #c83f78;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-statut select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-right: 8px;
+}
+
+.form-statut button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #c83f78;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-statut button:hover {
+    background: #a82d61;
+}
+
+/* ============================= */
+/*            RESPONSIVE          */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+    .produits {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .commandes-admin {
+        grid-template-columns: 1fr;
+    }
+
+    .valeurs {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    .produits {
+        grid-template-columns: 1fr;
+    }
+
+    .formulaire {
+        width: 85%;
+        padding: 20px;
+    }
+
+    .commande-box {
+        padding: 20px;
+    }
+
+    .form-statut select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .form-statut button {
+        width: 100%;
+    }
+}
+body.accueil main h2 {
+    font-size: 38px;
+}
+
+body.accueil main p {
+    font-size: 22px;
+}
+body.accueil main .btn-panier {
+    font-size: 18px;
+    padding: 13px 25px;
+}
