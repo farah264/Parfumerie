@@ -1,8 +1,6 @@
 <?php
 
 session_start();
-
-/* Détruire toutes les informations de connexion */
 unset(
     $_SESSION['utilisateur'],
     $_SESSION['utilisateur_id'],
@@ -13,7 +11,7 @@ unset(
     $_SESSION['client_ville']
 );
 
-/* Retourner à la page d'accueil */
+
 header("Location: index.php");
 exit;
 
