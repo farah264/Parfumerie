@@ -2,11 +2,6 @@
 
 session_start();
 
-
-/* ========================================= */
-/* VÉRIFIER LES INFORMATIONS DE LA COMMANDE */
-/* ========================================= */
-
 $nom = $_SESSION['client_nom'] ?? '';
 $email = $_SESSION['client_email'] ?? '';
 $telephone = $_SESSION['client_telephone'] ?? '';
@@ -15,11 +10,6 @@ $ville = $_SESSION['client_ville'] ?? '';
 
 $commande_id = $_SESSION['commande_id'] ?? null;
 $total = $_SESSION['commande_total'] ?? 0;
-
-
-/* ========================================= */
-/* VÉRIFIER QUE LA COMMANDE EXISTE */
-/* ========================================= */
 
 if (!$commande_id) {
 
@@ -61,22 +51,13 @@ if (!$commande_id) {
 
 <div class="commande-validee">
 
-
-    <!-- ICÔNE -->
-
     <div class="icone-validation">
         ✓
     </div>
 
-
-    <!-- TITRE -->
-
     <h1>
         Commande validée !
     </h1>
-
-
-    <!-- MESSAGE -->
 
     <p class="merci">
 
@@ -97,18 +78,12 @@ if (!$commande_id) {
     </p>
 
 
-
-    <!-- INFORMATIONS COMMANDE -->
-
     <div class="details-commande">
 
 
         <h2>
             ✨ Informations de votre commande
         </h2>
-
-
-        <!-- NUMÉRO DE COMMANDE -->
 
         <p>
 
@@ -119,9 +94,6 @@ if (!$commande_id) {
             ?>
 
         </p>
-
-
-        <!-- EMAIL -->
 
         <p>
 
@@ -137,9 +109,6 @@ if (!$commande_id) {
 
         </p>
 
-
-        <!-- TÉLÉPHONE -->
-
         <p>
 
             📱 <strong>Téléphone :</strong>
@@ -153,9 +122,6 @@ if (!$commande_id) {
             ?>
 
         </p>
-
-
-        <!-- ADRESSE -->
 
         <p>
 
@@ -171,9 +137,6 @@ if (!$commande_id) {
 
         </p>
 
-
-        <!-- VILLE -->
-
         <p>
 
             🏙️ <strong>Ville :</strong>
@@ -188,8 +151,6 @@ if (!$commande_id) {
 
         </p>
 
-
-        <!-- TOTAL -->
 
         <p>
 
@@ -208,9 +169,6 @@ if (!$commande_id) {
 
         </p>
 
-
-        <!-- STATUT -->
-
         <p>
 
             📦 <strong>Statut :</strong>
@@ -224,20 +182,12 @@ if (!$commande_id) {
 
     </div>
 
-
-
-    <!-- MESSAGE FINAL -->
-
     <p class="message-final">
 
         Votre commande a été enregistrée
         avec succès. 💗
 
     </p>
-
-
-
-    <!-- RETOUR -->
 
     <a
         href="index.php"
