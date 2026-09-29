@@ -1,17 +1,7 @@
 <?php
 
 session_start();
-
-/* ============================= */
-/* MOT DE PASSE ADMINISTRATEUR */
-/* ============================= */
-
 $mot_de_passe_admin = "admin123";
-
-
-/* ============================= */
-/* VÉRIFIER LA CONNEXION ADMIN */
-/* ============================= */
 
 if (!isset($_SESSION['admin'])) {
 
@@ -21,7 +11,6 @@ if (!isset($_SESSION['admin'])) {
 
             $_SESSION['admin'] = true;
 
-            /* Éviter de renvoyer le formulaire */
             header("Location: admin.php");
             exit;
 
@@ -33,10 +22,6 @@ if (!isset($_SESSION['admin'])) {
     }
 }
 
-
-/* ============================= */
-/* AFFICHER LA CONNEXION */
-/* ============================= */
 
 if (!isset($_SESSION['admin'])) {
 ?>
@@ -114,17 +99,7 @@ exit;
 
 }
 
-
-/* ============================= */
-/* CONNEXION À LA BASE DE DONNÉES */
-/* ============================= */
-
 include "includes/connexion_bd.php";
-
-
-/* ============================= */
-/* MODIFIER LE STATUT */
-/* ============================= */
 
 if (isset($_POST['modifier_statut'])) {
 
@@ -135,9 +110,6 @@ if (isset($_POST['modifier_statut'])) {
     );
 
     $nouveau_statut = $_POST['statut'] ?? '';
-
-
-    /* Statuts autorisés */
 
     $statuts_autorises = [
         "En attente",
@@ -176,24 +148,15 @@ if (isset($_POST['modifier_statut'])) {
         }
     }
 
-
-    /* Retour à la page admin */
-
     header("Location: admin.php");
     exit;
 }
-
-
-/* ============================= */
-/* RÉCUPÉRER LES COMMANDES */
-/* ============================= */
 
 $sql = "
     SELECT *
     FROM commandes
     ORDER BY date_commande DESC
 ";
-
 
 $resultat = $connexion->query($sql);
 
@@ -280,9 +243,6 @@ $resultat = $connexion->query($sql);
 
                 <div class="commande-info">
 
-
-                    <!-- EMAIL -->
-
                     <p>
 
                         📧 <strong>Email :</strong>
@@ -296,9 +256,6 @@ $resultat = $connexion->query($sql);
                         ?>
 
                     </p>
-
-
-                    <!-- TÉLÉPHONE -->
 
                     <p>
 
@@ -314,9 +271,6 @@ $resultat = $connexion->query($sql);
 
                     </p>
 
-
-                    <!-- ADRESSE -->
-
                     <p>
 
                         🏠 <strong>Adresse :</strong>
@@ -331,9 +285,6 @@ $resultat = $connexion->query($sql);
 
                     </p>
 
-
-                    <!-- VILLE -->
-
                     <p>
 
                         🏙️ <strong>Ville :</strong>
@@ -347,9 +298,6 @@ $resultat = $connexion->query($sql);
                         ?>
 
                     </p>
-
-
-                    <!-- TOTAL -->
 
                     <p>
 
@@ -367,9 +315,6 @@ $resultat = $connexion->query($sql);
 
                     </p>
 
-
-                    <!-- DATE -->
-
                     <p>
 
                         📅 <strong>Date :</strong>
@@ -384,14 +329,9 @@ $resultat = $connexion->query($sql);
 
                     </p>
 
-
-                    <!-- STATUT -->
-
                     <p>
 
                         📦 <strong>Statut :</strong>
-
-
                         <span
                             class="statut
                             <?php
@@ -406,7 +346,6 @@ $resultat = $connexion->query($sql);
 
                             ?>"
                         >
-
                             <?php
 
                             echo htmlspecialchars(
@@ -423,18 +362,10 @@ $resultat = $connexion->query($sql);
 
 
                 </div>
-
-
-                <!-- ============================= -->
-                <!-- MODIFICATION DU STATUT -->
-                <!-- ============================= -->
-
                 <form
                     method="post"
                     class="form-statut"
                 >
-
-
                     <input
                         type="hidden"
                         name="id_commande"
@@ -455,8 +386,6 @@ $resultat = $connexion->query($sql);
                         name="statut"
                         id="statut-<?php echo (int) $commande['id']; ?>"
                     >
-
-
                         <option
                             value="En attente"
                             <?php
@@ -469,7 +398,6 @@ $resultat = $connexion->query($sql);
                         >
                             🕐 En attente
                         </option>
-
 
                         <option
                             value="Préparée"
