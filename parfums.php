@@ -1,19 +1,11 @@
 <?php
 
 session_start();
-
-// Connexion à la base de données
 $conn = new mysqli("localhost", "root", "", "parfumerie");
-
-// Vérifier la connexion
 if ($conn->connect_error) {
     die("Erreur de connexion : " . $conn->connect_error);
 }
-
-// Définir l'encodage
 $conn->set_charset("utf8mb4");
-
-// Récupérer les produits
 $sql = "SELECT * FROM produits";
 $result = $conn->query($sql);
 
@@ -30,7 +22,7 @@ $result = $conn->query($sql);
 
     <title>Nos Parfums - Ma Parfumerie</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -146,7 +138,7 @@ $result = $conn->query($sql);
                     </p>
 
                     <a
-                        href="panier.php?produit=<?php echo urlencode($produit['nom']); ?>&prix=<?php echo urlencode($produit['prix']); ?>"
+                        href="panier.php?produit_id=<?php echo (int)$produit['id']; ?>"
                         class="btn-panier"
                     >
                         🛒 Ajouter au panier
@@ -176,7 +168,6 @@ $result = $conn->query($sql);
 
 <?php
 
-// Fermer la connexion
 $conn->close();
 
 ?>
