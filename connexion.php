@@ -27,8 +27,6 @@ if (isset($_POST['email'], $_POST['mot_de_passe'])) {
             $utilisateur = $resultat->fetch_assoc();
 
             if (password_verify($mot_de_passe, $utilisateur['mot_de_passe'])) {
-
-                // Enregistrer les informations du client
                 $_SESSION['utilisateur_id'] = $utilisateur['id'];
                 $_SESSION['utilisateur'] = $utilisateur['nom'];
                 $_SESSION['client_nom'] = $utilisateur['nom'];
