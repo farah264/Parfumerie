@@ -1,8 +1,4 @@
 
-/* ============================= */
-/*          STYLE GENERAL        */
-/* ============================= */
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -18,9 +14,6 @@ body.accueil {
     background-image: url("../images/acceuil.png");
 }
 
-/* ============================= */
-/*             HEADER             */
-/* ============================= */
 
 header {
     background: rgba(255, 255, 255, 0.92);
@@ -34,10 +27,6 @@ header h1 {
     font-family: Georgia, serif;
     margin: 0 0 15px 0;
 }
-
-/* ============================= */
-/*              NAV               */
-/* ============================= */
 
 nav {
     text-align: center;
@@ -59,10 +48,6 @@ nav a:hover {
     color: white;
 }
 
-/* ============================= */
-/*              MAIN              */
-/* ============================= */
-
 main {
     width: 90%;
     max-width: 1200px;
@@ -74,10 +59,6 @@ main h2 {
     color: #c83f78;
     font-family: Georgia, serif;
 }
-
-/* ============================= */
-/*            PRODUITS            */
-/* ============================= */
 
 .produits {
     width: 90%;
@@ -116,10 +97,6 @@ main h2 {
     color: #555;
 }
 
-/* ============================= */
-/*        BOUTON PANIER           */
-/* ============================= */
-
 .btn-panier {
     display: inline-block;
     background: #c83f78;
@@ -134,10 +111,6 @@ main h2 {
 .btn-panier:hover {
     background: #a82d61;
 }
-
-/* ============================= */
-/*            FORMULAIRES         */
-/* ============================= */
 
 .formulaire {
     width: 90%;
@@ -193,10 +166,6 @@ main h2 {
     background: #a82d61;
 }
 
-/* ============================= */
-/*       MESSAGES SUCCÈS         */
-/* ============================= */
-
 .message-succes {
     background: #d4edda;
     color: #155724;
@@ -210,10 +179,6 @@ main h2 {
     font-weight: bold;
 }
 
-/* ============================= */
-/*        MESSAGE ERREUR          */
-/* ============================= */
-
 .message-erreur {
     background: #f8d7da;
     color: #721c24;
@@ -221,11 +186,6 @@ main h2 {
     border-radius: 10px;
     font-weight: bold;
 }
-
-/* ============================= */
-/*             PANIER             */
-/* ============================= */
-
 .panier {
     width: 90%;
     max-width: 900px;
@@ -256,10 +216,6 @@ main h2 {
 .btn-supprimer:hover {
     background: #b52a37;
 }
-
-/* ============================= */
-/*       COMMANDE VALIDEE        */
-/* ============================= */
 
 .commande-validee {
     width: 90%;
@@ -308,10 +264,6 @@ main h2 {
     background: #a82d61;
 }
 
-/* ============================= */
-/*          COMPTE CREE          */
-/* ============================= */
-
 body.compte-cree {
     background-image: url("../images/inscription.png");
     background-size: cover;
@@ -319,11 +271,6 @@ body.compte-cree {
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
-
-/* ============================= */
-/*          PAGE À PROPOS        */
-/* ============================= */
-
 .page-apropos {
     width: 90%;
     max-width: 1000px;
@@ -357,10 +304,6 @@ body.compte-cree {
     padding: 20px;
     border-radius: 15px;
 }
-
-/* ============================= */
-/*     COMMANDES ADMIN           */
-/* ============================= */
 
 .commandes-admin {
     width: 90%;
@@ -404,42 +347,27 @@ body.compte-cree {
     color: #c83f78;
 }
 
-/* ============================= */
-/*       STATUT EN ATTENTE       */
-/* ============================= */
-
 .statut {
     display: inline-block;
     padding: 8px 15px;
     border-radius: 20px;
     font-weight: bold;
 }
-
-/* En attente */
 .statut.en-attente {
     background-color: #fff3cd;
     color: #856404;
     border: 1px solid #ffe69c;
 }
-
-/* Préparée */
 .statut.préparée {
     background-color: #cfe2ff;
     color: #084298;
     border: 1px solid #9ec5fe;
 }
-
-/* Livrée */
 .statut.livrée {
     background-color: #d1e7dd;
     color: #0f5132;
     border: 1px solid #a3cfbb;
 }
-
-/* ============================= */
-/*       FORMULAIRE STATUT       */
-/* ============================= */
-
 .form-statut {
     margin-top: 20px;
     padding-top: 15px;
@@ -474,10 +402,6 @@ body.compte-cree {
 .form-statut button:hover {
     background: #a82d61;
 }
-
-/* ============================= */
-/*            RESPONSIVE          */
-/* ============================= */
 
 @media (max-width: 900px) {
 
