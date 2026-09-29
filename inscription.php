@@ -18,8 +18,6 @@ if (isset($_POST['nom'], $_POST['email'], $_POST['mot_de_passe'], $_POST['confir
         $message = "Les mots de passe ne correspondent pas.";
 
     } else {
-
-        // Vérifier si l'email existe déjà
         $sql_verification = "SELECT id FROM utilisateurs WHERE email = ?";
 
         $requete_verification = $connexion->prepare($sql_verification);
@@ -34,8 +32,6 @@ if (isset($_POST['nom'], $_POST['email'], $_POST['mot_de_passe'], $_POST['confir
             $message = "Un compte existe déjà avec cet email.";
 
         } else {
-
-            // Sécuriser le mot de passe
             $mot_de_passe_hash = password_hash(
                 $mot_de_passe,
                 PASSWORD_DEFAULT
@@ -57,17 +53,12 @@ if (isset($_POST['nom'], $_POST['email'], $_POST['mot_de_passe'], $_POST['confir
                 );
 
                 if ($requete->execute()) {
-
-                    // Récupérer l'identifiant du nouvel utilisateur
                     $utilisateur_id = $connexion->insert_id;
-
-                    // Connecter automatiquement l'utilisateur
                     $_SESSION['utilisateur_id'] = $utilisateur_id;
                     $_SESSION['utilisateur'] = $nom;
                     $_SESSION['client_nom'] = $nom;
                     $_SESSION['client_email'] = $email;
 
-                    // Aller à l'accueil
                     header("Location: index.php");
                     exit;
 
