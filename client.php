@@ -2,34 +2,15 @@
 
 session_start();
 
-/* ========================================= */
-/* VÉRIFIER SI LE CLIENT EST CONNECTÉ */
-/* ========================================= */
-
 if (!isset($_SESSION['client_id'])) {
 
     header("Location: connexion.php");
     exit;
 }
 
-
-/* ========================================= */
-/* CONNEXION À LA BASE DE DONNÉES */
-/* ========================================= */
-
 include "includes/connexion_bd.php";
 
-
-/* ========================================= */
-/* RÉCUPÉRER L'ID DU CLIENT */
-/* ========================================= */
-
 $client_id = (int) $_SESSION['client_id'];
-
-
-/* ========================================= */
-/* RÉCUPÉRER LES INFORMATIONS DU CLIENT */
-/* ========================================= */
 
 $sql_client = "
     SELECT *
@@ -63,11 +44,6 @@ $client = $resultat_client->fetch_assoc();
 
 $requete_client->close();
 
-
-/* ========================================= */
-/* VÉRIFIER QUE LE CLIENT EXISTE */
-/* ========================================= */
-
 if (!$client) {
 
     session_destroy();
@@ -76,22 +52,13 @@ if (!$client) {
     exit;
 }
 
-
-/* ========================================= */
-/* RÉCUPÉRER LES COMMANDES DU CLIENT */
-/* ========================================= */
-
 $email_client = $client['email'];
-
-
 $sql_commandes = "
     SELECT *
     FROM commandes
     WHERE email = ?
     ORDER BY date_commande DESC
 ";
-
-
 $requete_commandes = $connexion->prepare($sql_commandes);
 
 
@@ -132,12 +99,7 @@ $resultat_commandes = $requete_commandes->get_result();
 
 
 <body class="page-client">
-
-
-<!-- ========================================= -->
-<!-- HEADER -->
-<!-- ========================================= -->
-
+    
 <header>
 
     <h1>
@@ -170,20 +132,9 @@ $resultat_commandes = $requete_commandes->get_result();
     </nav>
 
 </header>
-
-
-<!-- ========================================= -->
-<!-- CONTENU -->
-<!-- ========================================= -->
-
 <main>
 
     <div class="espace-client">
-
-
-        <!-- ========================================= -->
-        <!-- BIENVENUE -->
-        <!-- ========================================= -->
 
         <div class="bienvenue-client">
 
@@ -207,12 +158,6 @@ $resultat_commandes = $requete_commandes->get_result();
             </p>
 
         </div>
-
-
-
-        <!-- ========================================= -->
-        <!-- INFORMATIONS CLIENT -->
-        <!-- ========================================= -->
 
         <div class="client-section">
 
@@ -267,7 +212,6 @@ $resultat_commandes = $requete_commandes->get_result();
                 </div>
 
 
-
                 <?php if (isset($client['telephone'])) { ?>
 
                     <div class="information-box">
@@ -296,12 +240,6 @@ $resultat_commandes = $requete_commandes->get_result();
             </div>
 
         </div>
-
-
-
-        <!-- ========================================= -->
-        <!-- COMMANDES -->
-        <!-- ========================================= -->
 
         <div class="client-section">
 
@@ -441,12 +379,6 @@ $resultat_commandes = $requete_commandes->get_result();
 
 
         </div>
-
-
-
-        <!-- ========================================= -->
-        <!-- BOUTONS -->
-        <!-- ========================================= -->
 
         <div class="actions-client">
 
