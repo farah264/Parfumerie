@@ -2,33 +2,66 @@
 
 session_start();
 
-/* Créer le panier */
+
+$conn = new mysqli("localhost", "root", "", "parfumerie");
+
+if ($conn->connect_error) {
+    die("Erreur de connexion : " . $conn->connect_error);
+}
+
+$conn->set_charset("utf8mb4");
+
+
 if (!isset($_SESSION['panier'])) {
     $_SESSION['panier'] = [];
 }
 
-/* Ajouter un parfum */
-if (isset($_GET['produit'], $_GET['prix'])) {
 
-    $produit = trim($_GET['produit']);
-    $prix = (float) $_GET['prix'];
+if (isset($_GET['produit_id'])) {
 
-    $_SESSION['panier'][] = [
-        'produit' => $produit,
-        'prix' => $prix
-    ];
+    $produit_id = filter_input(
+        INPUT_GET,
+        'produit_id',
+        FILTER_VALIDATE_INT
+    );
+
+    if ($produit_id !== false && $produit_id !== null) {
+
+        $sql = "SELECT id, nom, prix FROM produits WHERE id = ?";
+
+        $requete = $conn->prepare($sql);
+
+        if ($requete) {
+
+            $requete->bind_param("i", $produit_id);
+            $requete->execute();
+
+            $resultat = $requete->get_result();
+
+            if ($produit = $resultat->fetch_assoc()) {
+
+                $_SESSION['panier'][] = [
+                    'produit_id' => (int)$produit['id'],
+                    'produit' => $produit['nom'],
+                    'prix' => (float)$produit['prix']
+                ];
+            }
+
+            $requete->close();
+        }
+    }
 }
 
-/* Vider le panier */
+
 if (isset($_GET['vider'])) {
     $_SESSION['panier'] = [];
 }
 
-/* Calcul du total */
+
 $total = 0;
 
 foreach ($_SESSION['panier'] as $article) {
-    $total += (float) $article['prix'];
+    $total += (float)$article['prix'];
 }
 
 ?>
@@ -44,7 +77,7 @@ foreach ($_SESSION['panier'] as $article) {
 
     <title>Mon panier</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -92,7 +125,14 @@ foreach ($_SESSION['panier'] as $article) {
 
                     <p>
                         Prix :
-                        <?php echo number_format((float)$article['prix'], 2, ',', ' '); ?>
+                        <?php
+                        echo number_format(
+                            (float)$article['prix'],
+                            2,
+                            ',',
+                            ' '
+                        );
+                        ?>
                         DT
                     </p>
 
@@ -104,10 +144,16 @@ foreach ($_SESSION['panier'] as $article) {
 
             <h2>
                 Total :
-                <?php echo number_format($total, 2, ',', ' '); ?> DT
+                <?php
+                echo number_format(
+                    $total,
+                    2,
+                    ',',
+                    ' '
+                );
+                ?>
+                DT
             </h2>
-
-            <!-- BOUTONS -->
 
             <div class="actions-panier">
 
@@ -134,3 +180,9 @@ foreach ($_SESSION['panier'] as $article) {
 </body>
 
 </html>
+
+<?php
+
+$conn->close();
+
+?>
