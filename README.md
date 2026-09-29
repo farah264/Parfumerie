@@ -8,7 +8,7 @@ L'application permet aux utilisateurs de consulter des parfums, créer un compte
 
 Une interface d'administration permet également de consulter les commandes et de modifier leur statut.
 
-## 🛠️ Technologies utilisées :
+##  Technologies utilisées :
 
 - PHP
 - MySQL
@@ -16,9 +16,9 @@ Une interface d'administration permet également de consulter les commandes et d
 - CSS3
 - XAMPP
 
-## ✨ Fonctionnalités
+##  Fonctionnalités :
 
-### 👤 Client :
+### Client :
 - Création de compte
 - Connexion / déconnexion
 - Consultation des parfums
@@ -41,7 +41,7 @@ La base de données MySQL contient notamment les tables :
 - commandes
 - details_commandes
 
-##  Installation en local
+##  Installation en local :
 
 1. Installer XAMPP.
 2. Démarrer Apache et MySQL.
