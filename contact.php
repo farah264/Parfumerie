@@ -3,9 +3,6 @@
 $message_envoye = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // Pour l'instant, le formulaire affiche simplement
-    // un message de confirmation.
     header("Location: contact.php?success=1");
     exit();
 }
